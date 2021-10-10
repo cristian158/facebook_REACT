@@ -40,13 +40,14 @@ function Navbar(props){
 }
 
 function NavItem(props){
-	const [open, setOpen] = useState();
+	const [open, setOpen] = useState(false);
 	// the 1st value is the state, set to 'open', boolean value that tells wether the dropdown is open or not. The 2nd value is a function that we use to change the state
-
+	// false is the default value
 
 	return(
 		<li className="nav-item">
-			<a href="#" className="icon-button">
+		//onClick is the event, setOpen is the handler, putting a bang as prefix of boolean makes it the opposite
+			<a href="#" className="icon-button" onClick={() => setOpen(!open)}>
 				{props.icon}
 			</a>
 		</li>
