@@ -37,13 +37,13 @@ a{
 	border-bottom: var(--border);
 }
 .navbar-nav{
-	max-width: 100%;
-	height: 100%;
+	max-width: 100%; /* flexible growth*/
+	height: 100%; /* inheritance */
 	display: flex;
 	justify-content: flex-end;  /* so it goes to the right */
 }
 .nav-item{
-	width: calc(var(--nav-size)*0.8);
+	width: calc(var(--nav-size)*0.6);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -66,14 +66,73 @@ a{
 }
 .icon-button svg{
 	fill:var(--text-color);
+	/* fixed width and height cause svg don't inherit size by default */
 	width: 20px;
 	height: 20px;
 }
 
 
+/* DropdownMenu
+--------------------------------- */
+.dropdown{
+	position: absolute;
+	top: 58px;
+	width: 300px;
+	transform: translateX(-45%);
+	background-color: var(--bg);
+	border: var(--border);
+	border-radius: var(--border-radius);
+	padding: 1rem;
+	overflow: hidden;
 
+	transition: height var(--speed) ease;
+}
 
+.menu-item{
+	height:50px;
+	display: flex;
+	align-items: center;
+	border-radius: var(--border-radius);
+	transition: background var(--speed);
+	padding: 0.5rem;
+}
 
+.menu-item:hover{
+	background-color: #525357;
+}
+.icon-right{
+	margin-left: auto;
+}
+.menu-primary-enter{
+	position: absolute;
+	transform: translateX(-110%);
+}
+.menu-primary-enter-active{
+	transform: translateX(0%);
+	transition: all var(--speed) ease;
+}
+.menu-primary-exit{
+	position: relative;
+}
+.menu-primary-exit-active{
+	transform: translateX(-110%);
+	transition: all var(--speed) ease;
+}
+
+.menu-secondary-enter{
+	position: absolute;
+	transform: translateX(110%);
+}
+.menu-secondary-enter-active{
+	transform: translateX(0%);
+	transition: all var(--speed) ease;
+}
+.menu-secondary-exit{
+}
+.menu-secondary-exit-active{
+	transform: translateX(110%);
+	transition: all var(--speed) ease;
+}
 
 
 
